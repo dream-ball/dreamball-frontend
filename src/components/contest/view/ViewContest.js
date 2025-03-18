@@ -13,7 +13,7 @@ function ViewContest() {
     const [contestType, setContestType] = useState([])
     const [currentPrizePool,setCurrentPrizePool] =useState([])
     const [playersCount,setPlayersCount]=useState(0)
-    const [leaderBoard,setLoaderBoard]=useState([])
+    const [leaderBoard,setLeaderBoard]=useState([])
     const [join, setJoin,] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -76,7 +76,7 @@ function ViewContest() {
 
             const data = await res.json();
             if (!res.ok) throw new Error(data.msg || "Something went wrong");
-            setLoaderBoard(data.leaderBoard.players);
+            setLeaderBoard(data.leaderBoard.players);
             setPlayersCount(data.leaderBoard.players_count)
             if (data.max_fill) {
                 setMaxFill(data.max_fill);

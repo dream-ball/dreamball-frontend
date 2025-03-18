@@ -10,12 +10,14 @@ function ViewLiveContest() {
     const [prize_detail, set_prize_detail] = useState(null);
     const [currentFill, setCurrentFill] = useState([])
     const [contestType, setContestType] = useState([])
-    const [currentPrizePoll,setCurrentPrizePool] =useState([])
+    const [playersCount, setPlayersCount] = useState(0)
+    const [leaderBoard, setLeaderBoard] = useState([])
+    const [currentPrizePoll, setCurrentPrizePool] = useState([])
     const [join, setJoin,] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     useEffect(() => {
-        setJoin(true); 
+        setJoin(true);
     }, []);
     const fetchMatchData = useCallback(async () => {
         try {
@@ -50,6 +52,8 @@ function ViewLiveContest() {
             const data = await res.json();
             if (!res.ok) throw new Error(data.msg || "Something went wrong");
 
+            setLeaderBoard(data.leaderBoard.players);
+            setPlayersCount(data.leaderBoard.players_count)
             if (data.max_fill) {
                 setCurrentFill(data.current_fill);
                 setCurrentPrizePool(data.current_prizePool)
@@ -85,7 +89,7 @@ function ViewLiveContest() {
             set_prize_detail(contest_data[0])
         } catch (err) {
             setError(err.message);
-        } 
+        }
     }, [match_id, contest_id]);
 
     useEffect(() => {
@@ -123,6 +127,8 @@ function ViewLiveContest() {
                     join={join}
                     currentPrizePoll={currentPrizePoll}
                     timeRemaining={"Live"}
+                    leaderBoard={leaderBoard}
+                    playersCount={playersCount}
                     currentFill={currentFill}
                     contestType={contestType}
                 /></> : display_loading(true))}

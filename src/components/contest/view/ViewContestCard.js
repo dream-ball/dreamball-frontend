@@ -190,37 +190,39 @@ const ViewContestCard = ({ matchData, contests, prize_detail, registerContest, j
                     <div className='no_fill_msg'>{"Waiting for Players...!"}</div>
                   </div>
                   : <>
-                    <div class="flex-table">
-                      <div class="flex-row header">
-                        <div class="flex-cell">Rank</div>
-                        <div class="flex-cell">Players</div>
-                        <div class="flex-cell">Points</div>
+                    <div className="flex-table">
+                      <div className="flex-row table-header">
+                        <div className="flex-cell">Rank</div>
+                        <div className="flex-cell">Players</div>
+                        <div className="flex-cell">Points</div>
                       </div>
-                      <div class="flex-row">
-                        <div class="flex-cell">1</div>
-                        <div class="flex-cell">Player A</div>
-                        <div class="flex-cell">1000</div>
-                      </div>
-                      <div class="flex-row">
-                        <div class="flex-cell">2</div>
-                        <div class="flex-cell">Player B</div>
-                        <div class="flex-cell">950</div>
-                      </div>
-                      <div class="flex-row">
-                        <div class="flex-cell">3</div>
-                        <div class="flex-cell">Player C</div>
-                        <div class="flex-cell">900</div>
-                      </div>
-                      <div class="flex-row">
-                        <div class="flex-cell">4</div>
-                        <div class="flex-cell">Player D</div>
-                        <div class="flex-cell">850</div>
-                      </div>
-                      <div class="flex-row">
-                        <div class="flex-cell">5</div>
-                        <div class="flex-cell">Player E</div>
-                        <div class="flex-cell">800</div>
-                      </div>
+                      {leaderBoard.length === 0 ? <></> : <>
+                        {leaderBoard.map(player => {
+                          return (
+                            <div className="flex-row">
+                              <div className="flex-cell">1</div>
+                              <div className="flex-cell">
+                                <div className='user_con'>
+                                  <div className='lBoard_user_profile'>
+                                    <img src={player.user_profile} alt='user'></img>
+                                  </div>
+                                  <div className='user_data'>
+                                    <span>{player.user_name}</span>
+                                    {/* <span>${formatNumber(100)}</span> */}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex-cell">0</div>
+                            </div>
+                          )
+
+
+                        })}
+
+                      </>}
+
+
+
                     </div>
                   </>
                 }

@@ -5,7 +5,7 @@ import practiceImg from './practice.png'
 import { useNavigate } from "react-router-dom";
 
 
-const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContest, join, timeRemaining, currentFill, contestType, currentPrizePoll }) => {
+const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContest, join, timeRemaining, currentFill, contestType, currentPrizePoll, leaderBoard, playersCount }) => {
   const navigate = useNavigate();
   const [activeHeader, setActiveHeader] = useState('leaderboard');
   const handleHeaderClick = (header) => setActiveHeader(header);

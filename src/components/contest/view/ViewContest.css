@@ -318,25 +318,85 @@
     color: rgb(0, 59, 110);
     font-size: 16px;
 }
-.leader_board{
-    display: flex;
-    flex-direction: column;
-}
-.user_card{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
 
-.lBoard_user_profile{
+
+.lBoard_user_profile {
     width: 35px;
     height: 35px;
     overflow: hidden;
     border-radius: 100%;
 }
-.lBoard_user_profile img{
+
+.lBoard_user_profile img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.user_con{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+}
+
+.user_data{
+
+    display: flex;
+    flex-direction: column;
+}
+.flex-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.flex-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.flex-cell{
+    align-content: center;
+
+}
+
+.flex-row.table-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.flex-row .flex-cell:first-child {
+    flex: 0 0 10%;
+    width: 10%;
+}
+
+
+.flex-row .flex-cell:nth-child(2) {
+    text-align: left;
+}
+
+.flex-row .flex-cell:last-child {
+    flex: 0 0 20%;
+    width: 20%;
+
+}
+
+.flex-cell {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+}
+
+/* Remove border from the last cell in each row */
+.flex-cell:last-child {
+    border-right: none;
+}
+
+/* Remove border from the last row */
+.flex-row:last-child {
+    border-bottom: none;
 }
