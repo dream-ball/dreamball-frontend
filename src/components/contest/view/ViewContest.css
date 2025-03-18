@@ -383,7 +383,11 @@
     width: 20%;
 
 }
-
+.palyer_winnings{
+    font-size: 14px;
+    margin:1px 0px;
+    color: #5c5c5c;
+}
 .flex-cell {
     flex: 1;
     padding: 8px;

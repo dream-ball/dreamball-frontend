@@ -212,7 +212,7 @@ const ViewContestCard = ({ matchData, contests, prize_detail, registerContest, j
                                   </div>
                                 </div>
                               </div>
-                              <div className="flex-cell">0</div>
+                              <div className="flex-cell">1000</div>
                             </div>
                           )
 

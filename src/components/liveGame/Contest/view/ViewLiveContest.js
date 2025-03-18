@@ -52,7 +52,7 @@ function ViewLiveContest() {
             const data = await res.json();
             if (!res.ok) throw new Error(data.msg || "Something went wrong");
 
-            setLeaderBoard(data.leaderBoard.players);
+            setLeaderBoard(data.leaderBoard.leaderBoard_data);
             setPlayersCount(data.leaderBoard.players_count)
             if (data.max_fill) {
                 setCurrentFill(data.current_fill);

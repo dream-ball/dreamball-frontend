@@ -141,7 +141,47 @@ const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContes
             }
             <div className='players_board_live' id="players_board">
               <div className='teams_count'>
-                <p className='info'>All Teams(12,21,983)</p>
+                <p className='info'>All Teams({formatNumber(playersCount)})</p>
+              </div>
+              <div className='player_con'>
+                {leaderBoard.length === 0 ?
+                  <div className='current_fill' id="current_fill" style={{ width: "100%", padding: "20px 0px" }}>
+                    <div className='no_fill_msg'>{"Waiting for Players...!"}</div>
+                  </div>
+                  : <>
+                    <div className="flex-table">
+                      <div className="flex-row table-header">
+                        <div className="flex-cell">Rank</div>
+                        <div className="flex-cell">Players</div>
+                        <div className="flex-cell">Points</div>
+                      </div>
+                      {leaderBoard.length === 0 ? <></> : <>
+                        {leaderBoard.map((player, index) => {
+                          return (<>
+                          
+                            {parseInt(player.winnings) !== 0 ?
+                              <div className="flex-row" key={index}>
+                                <div className="flex-cell" >{player.rank}</div>
+                                <div className="flex-cell">
+                                  <div className='user_con'>
+                                    <div className='lBoard_user_profile'>
+                                      <img src={player.user_profile} alt='user'></img>
+                                    </div>
+                                    <div className='user_data'>
+                                      <span>{player.user_name}</span>
+                                      <span className='palyer_winnings'>₹{formatNumber(player.winnings)}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex-cell">{player.points}</div>
+                              </div>
+                              : ""}
+                          </>)
+                        })}
+                      </>}
+                    </div>
+                  </>
+                }
               </div>
             </div>
           </div>
