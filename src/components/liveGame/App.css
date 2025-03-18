@@ -1,0 +1,447 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.match-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.img_con {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.img_con img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+hr {
+  color: #fff;
+}
+
+.live_match_card {
+  background: linear-gradient(90deg, #e7e7e7, #e7e7e7);
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.live_match_card .team_nick {
+  flex-grow: 1;
+}
+
+.status {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.match_data {
+  padding: 2px;
+}
+
+.status_data {
+  display: flex;
+  align-items: center;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(90deg, #4b4b4b, #7f7f7f);
+
+}
+
+.status_data .venue {
+  color: #fff;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+  width: 90%;
+}
+
+.live p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgb(0, 255, 106);
+  font-weight: bold;
+  margin: 0;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+.live span {
+  font-size: 20px;
+}
+
+.live_match_card .teams {
+  font-size: 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.overs {
+  color: #545454;
+}
+
+.img_con {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 100%;
+  box-shadow: 0 4px 10px rgba(1, 1, 1, 0.463);
+}
+
+.img_con img {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  object-fit: contain;
+}
+
+.ball_details {
+  padding: 4px;
+  background: linear-gradient(90deg, #b4b4b4, #c0bdbd);
+  border-radius: 0 0 6px 6px;
+}
+
+.ball_con {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+
+.ball_con .over_on {
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  text-wrap: nowrap;
+  margin-left: -5px;
+}
+
+.ball_con ._4 {
+  background-color: rgb(255, 123, 0);
+}
+
+.ball_con ._6 {
+  background-color: rgb(0, 232, 4);
+}
+
+.ball_con ._WB {
+  background-color: rgb(0, 173, 3);
+}
+
+.ball_con ._W {
+  background-color: rgb(255, 0, 0);
+}
+
+.ball_con div {
+
+  padding: 6px 10px;
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+.ball_details p {
+  margin: 0;
+  color: white;
+
+}
+
+.live_match_card_container {
+  border-radius: 6px;
+  margin-top: 10px;
+  width: 70%;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.bg1 {
+  background: linear-gradient(135deg, #b8b8b8, #c3c3c3);
+  opacity: 1;
+}
+
+.bg2 {
+  background: linear-gradient(159deg, #d9d9d9, #d5d5d5);
+  opacity: 0;
+  animation: fade 0.6s infinite alternate;
+}
+
+.bg3 {
+  background: linear-gradient(159deg, #fff, #fff);
+
+}
+
+.live_match_not_found_img {
+  margin: auto;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+
+}
+
+.live_match_not_found_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.live_game_con {
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: auto;
+  width: 99%;
+  height: 500px;
+}
+
+
+.live_game_con::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.live_game_con {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.user_input_table .user_input {
+  display: flex;
+  justify-content: right;
+  padding: 5px;
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+}
+
+.user_input_table .user_input .anz_input {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-wrap: nowrap;
+  width: 100%;
+  text-align: center;
+
+}
+
+.user_input_table .user_input .tag_head {
+  background-color: #ddd
+}
+
+.user_input_table .user_input .tag {
+  width: 80%;
+  padding: 10px 2px;
+  transition: all 0.01s ease;
+  border-right: 1px solid #d6d6d6fb;
+}
+.user_input_table .user_input .tag:first-child,
+.user_input_table .user_input .tag:nth-last-child(-n+2) {
+  border-right: none;
+}
+
+.user_input_table .user_input .clear {
+  background-color: #ffc107;
+}
+
+.user_input_table .user_input .selected {
+  background-color: rgb(255, 204, 0);
+
+}
+
+.user_input_table .user_input .selected_six {
+  background-color: rgb(29, 255, 37);
+}
+
+.user_input_table .user_input .selected_run {
+  background-color: rgb(0, 217, 255);
+}
+
+.user_input_table .user_input .selected_wicket {
+  background-color: rgba(255, 94, 94, 0.938);
+}
+
+.user_input_table .user_input .selected_dot{
+  background-color: #b4b4b4;
+}
+.user_input_table .input_table_header  {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.user_input_table .input_table_header   .input_reset{
+font-size:30px;
+}
+.user_input_table .input_table_header .input_reset:active{
+  transform:rotate(360deg);
+  transition: transform 0.1s ease-in-out;
+}
+.submit_overs_data button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 14px;
+  margin: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.user_block_options{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+
+}
+.user_block_options .block{
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  background-color: #e2e2e2;
+  justify-content:  center;
+  border-radius: 5px;
+
+}
+.user_block_options .block div{
+  padding: 4px 15px;
+  border-radius: 5px;
+}
+
+.user_block_options .block .active{
+background-color: black;
+color: #fff;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width:1000px) {
+
+  .live_match_card_container,
+  .live_match_card {
+    width: 60%;
+  }
+}
+
+@media (max-width:850px) {
+
+  .live_match_card_container,
+  .live_match_card {
+    width: 70%;
+  }
+}
+
+@media (max-width:700px) {
+
+  .live_match_card_container,
+  .live_match_card {
+    width: 85%;
+  }
+}
+
+@media (max-width:600px) {
+  .user_input_table .user_input {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width:500px) {
+
+  .live_match_card_container,
+  .live_match_card {
+    width: 95%;
+  }
+
+  .ball_con div {
+    padding: 4px 8px;
+  }
+
+  .team_nick span {
+    font-size: 14px;
+  }
+
+  .live_match_card .teams {
+    font-size: 17px;
+    padding: 6px;
+  }
+}
+
+@media (max-width:400px) {
+  .user_input_table .user_input {
+    font-size: 12px;
+  }
+}
+
+@media (max-width:350px) {
+  .img_con {
+    width: 40px;
+    height: 40px;
+  }
+
+  .live_match_card_container,
+  .live_match_card {
+    width: 93%;
+  }
+
+  .team_nick span {
+    font-size: 14px;
+  }
+
+  .live_match_card .teams {
+    font-size: 14px;
+    padding: 1px;
+  }
+}
+
+@media (max-width:300px) {
+
+  .user_input_table .user_input .anz_input {
+    text-wrap: wrap;
+  }
+}

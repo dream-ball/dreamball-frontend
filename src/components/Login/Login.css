@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+}
+
+
+.login-container {
+    width: 400px;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-card h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.login-card p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field input {
+    width: 91%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: #6a11cb;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #6a11cb;
+    color: white;
+    border: none;   
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login-button:hover {
+    background-color: #2575fc;
+}
+
+.options {
+    text-align: center;
+    margin-top: 15px;
+}
+.msg{
+    padding:3px;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.729);
+}
+
+.options a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #6a11cb;
+    margin: 0 5px;
+}
+
+.options a:hover {
+    color: #2575fc;
+}

@@ -1,0 +1,342 @@
+.head_view {
+    background: linear-gradient(159deg, #2465c1 10%, #2d91a7 100%);
+    color: #fff;
+    font-weight: bold;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+}
+
+.view_exit {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    width: 33px;
+    rotate: 270deg;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.view_vs {
+    position: relative;
+    top: -5px;
+}
+
+.view_con {
+    display: flex;
+    justify-content: center;
+}
+
+.view_main_con {
+    flex-basis: 800px;
+    height: 98vh;
+    margin-top: 69px;
+}
+
+.view_cnt_card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.268);
+    padding-top: 12px;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.view p {
+    font-size: 14px;
+    color: #777777;
+    margin: 0;
+
+}
+
+.view .total_prize {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 6px 0;
+
+}
+
+.view .entry {
+    background: linear-gradient(90deg, #39c45a, #34a24d);
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.view .full,
+.view .joined {
+    background: linear-gradient(90deg, #5c5c5c, #929292);
+
+}
+
+.view .card {
+    width: 94%;
+    margin: auto;
+}
+
+.prize_pool_tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.view .filled_bar .spots {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.view .filled_bar .filler {
+    margin-top: 6px;
+    height: 6px;
+    border-radius: 10px;
+    background: #ffc2c2;
+}
+
+.view .filled_bar .filler .inc_filler {
+    transition: all 0.5s ease;
+
+    background-color: rgb(246, 67, 67);
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.view .prize {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 8px;
+    background: #e8ebff9e;
+    margin-left: -19px;
+}
+
+.view .top_prize {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 21px;
+    top: -1px;
+}
+
+.view .prize p {
+    color: #424242;
+
+}
+
+.view .prize .img_con {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.view .prize .img_con img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.view .prz_img {
+    width: 25px;
+    height: 25px;
+}
+
+.view .amt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.view .prize_table {
+    border-bottom: 1px solid #ddd;
+}
+
+.view .prize_table .menu_op {
+    margin-right: 10px;
+}
+
+.view .prize_table .menu_op .view_header {
+    width: 94%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.view .prize_table .view_header div {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px 10px 0px;
+
+}
+
+.view .prize_table .view_header div span {
+    border-radius: 10px 10px 1px 1px;
+    transition: height .2s ease;
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    bottom: 0;
+    background-color: rgb(206, 0, 0);
+}
+
+.view .prize_table .view_header div.active {
+    color: rgb(206, 0, 0);
+}
+
+.view .prize_table .view_header div.active span {
+    width: 100%;
+    height: 10%;
+}
+
+.view .filler_options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.view .filler_options .filler_con {
+    display: flex;
+    flex-direction: row;
+    background-color: #e2e2e2;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.view .filler_options .filler_con div {
+    border-radius: 4px;
+    padding: 4px 20px;
+    color: black;
+}
+
+.view .filler_options .filler_con div.active {
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+
+}
+
+.view .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.view .max_fill,
+.view .current_fill {
+    width: 88%;
+    padding: 20px;
+    margin: auto;
+}
+
+.view .container .current_fill {
+    display: none;
+}
+
+
+.view .rank_header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.view .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.view .row:last-child {
+    border-bottom: none;
+}
+
+.view .rank {
+    font-weight: bold;
+}
+
+.view .winnings {
+    color: #333;
+}
+
+.view .players_board {
+    display: none;
+
+}
+
+.view .players_board .team_count {
+    border-bottom: 1px solid #ddd;
+}
+
+.view .players_board p {
+    width: 94%;
+    margin: auto;
+    padding: 10px 0px;
+
+}
+
+.view .practice_head {
+    padding: 15px;
+    text-align: center;
+}
+
+.view .ranking_board .practice_img {
+    margin: auto;
+    margin-top: 30px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.view .ranking_board .practice_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.current_fill .no_fill_msg {
+    text-align: center;
+    padding: 5px;
+    background-color: #e9f6ff;
+    color: rgb(0, 59, 110);
+    font-size: 16px;
+}
+.leader_board{
+    display: flex;
+    flex-direction: column;
+}
+.user_card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.lBoard_user_profile{
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.lBoard_user_profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

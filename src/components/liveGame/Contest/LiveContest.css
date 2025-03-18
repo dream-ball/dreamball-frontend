@@ -1,0 +1,356 @@
+.test {
+    width: 100px;
+    height: 100px;
+    fill: #bbbbbb;
+}
+
+.vs {
+    width: 40px;
+    height: 40px;
+}
+
+.team-header {
+    background: linear-gradient(159deg, #2465c1 10%, #2d91a7 100%);
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.team_nick {
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.teams {
+    justify-content: center;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.teams img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+}
+
+.img_container2,
+.img_container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 100px;
+}
+
+.time {
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.contest_join {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 22px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.left_deg {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #aeaeae, #ffffffbb);
+    border-radius: 0 100% 100% 0;
+}
+
+.right_deg {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #ffffffbb, #aeaeae);
+    border-radius: 100% 0 0 100%;
+}
+
+.live_match_card_con {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    max-width: 70%;
+    gap: 15px;
+    padding-bottom: 15px;
+}
+
+.cnt_card {
+    position: relative;
+    width: 70%;
+    border: 2px solid #adadad;
+    border-radius: 12px;
+    padding-top: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.268);
+
+}
+
+.cnt_card p {
+    font-size: 14px;
+    color: #777777;
+    margin: 0;
+}
+
+.cnt_card .total_prize {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 6px 0;
+
+}
+
+.cnt_card .entry {
+    background: linear-gradient(90deg, #24be48, #28a745);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.cnt_card .full,
+.cnt_card .joined {
+    background: linear-gradient(90deg, #5c5c5c, #929292);
+
+}
+
+.card {
+    width: 94%;
+    margin: auto;
+}
+
+.filled_bar .spots {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.layer_link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.filled_bar .filler {
+    margin-top: 6px;
+    height: 6px;
+    border-radius: 10px;
+    background: #ffc2c2;
+}
+
+.filled_bar .filler .inc_filler {
+    transition: all 0.5s ease;
+
+    background-color: rgb(246, 67, 67);
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.prize {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 18px;
+    padding: 8px;
+    background: #e8ebff9e;
+    border-radius: 0 0 0 0;
+    margin-left: -19px;
+}
+
+.top_prize {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 21px;
+    top: -1px;
+}
+
+.prize p {
+    color: #424242;
+
+}
+
+.prize .img_con {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.prize .img_con img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.prz_img {
+    width: 25px;
+    height: 25px;
+}
+
+.amt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.exit {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    width: 33px;
+    rotate: 270deg;
+    cursor: pointer;
+}
+.contest_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:70%;
+    padding: 10px;
+    padding-bottom: 1px;
+}
+.match_btn{
+    background: linear-gradient(90deg, #31d457, #168630);
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 2;
+
+}
+
+.contest_rank_header{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.contest_rank_header div{
+    font-size: 14px;
+    margin-left: 12px;
+    color:#777777;
+    padding: 6px 0px;
+}
+.contest_rank_header div:nth-child(3){
+    margin-left:auto;
+    margin-right: 25px;
+
+}
+.contest_rank_header div p{
+    padding: 3px;
+    text-align: center;
+}
+
+
+
+  .spinnerrrs {
+    width: 10px; /* w-6 */
+    height: 10px; /* h-6 */
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spins 0.8s linear infinite;
+  }
+  
+  /* Keyframes for Rotation */
+  @keyframes spins {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+@media(max-width:1300px) {
+    
+    .live_match_card_con {
+        max-width: 70%;
+    }   
+    .contest_header,
+    .cnt_card {
+        width: 80%;
+    }
+}
+@media(max-width:1300px){
+    .live_match_card_con {
+        max-width: 75%;
+    }
+}
+@media(max-width:1050px) {
+    .live_match_card_con {
+        max-width: 80%;
+    }
+    .contest_header,
+    .cnt_card {
+        width: 85%;
+    }
+}
+
+@media(max-width:800px) {
+    .live_match_card_con {
+        max-width: 90%;
+    }
+    .contest_header,
+    .cnt_card {
+        width: 95%;
+    }
+}
+
+@media(max-width:600px) {
+    .live_match_card_con {
+        max-width: 92%;
+    }
+    .contest_header,
+    .cnt_card {
+        width: 99%;
+    }
+
+    .exit {
+        left: 20px;
+    }
+}
+
+@media(max-width:500px) {
+    .live_match_card_con {
+        max-width: 92%;
+    }
+    .contest_header,
+    .cnt_card {
+        width: 99%;
+    }
+}
+
+@media(max-width:450px) {
+    .live_match_card_con {
+        max-width: 98%;
+    }
+    .contest_header,
+    .cnt_card {
+        width: 99%;
+    }
+}

@@ -1,0 +1,207 @@
+
+.menu_bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    display: none;
+}
+
+.menu_part {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 2;
+}
+
+.menu_profile_icon {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100%;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.463);
+}
+
+.menu_profile_image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+}
+
+.menu_bar .menu_layer {
+    display: block;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.menu_bar .menu_click_layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.529);
+    backdrop-filter: blur(1px);
+}
+
+.menu_bar .menu_window {
+    transform: translate(-100%);
+    max-width: 500px;
+    height: 100%;
+    transition: all 0.5s ease;
+
+}
+
+.menu_bar .menu_options {
+    background-color: #f0f0f0;
+    width: 95%;
+    position: relative;
+    height: 100%;
+}
+
+.menu_bar .menu_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(159deg, #2057a3 10%, #2c879b 100%);
+    padding: 15px;
+    padding-bottom: 30px;
+}
+
+.menu_bar .menu_header .menu_user_name {
+    color: white;
+}
+
+.menu_bar .menu_options .menu_user_profile {
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+    border-radius: 100%;
+    box-shadow:0px 0px 25px 3px rgba(10, 150, 157, 0.786)
+}
+
+.menu_bar .menu_options .menu_user_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.menu_bar .menu_btns {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu_bar .menu_btns .menu_btn {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.199);
+}
+
+.menu_bar .menu_btns .menu_wallet {
+    margin-top: -15px;
+}
+
+.menu_bar .menu_btns .menu_btn .menu_balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.menu_bar .menu_btns .menu_acnt_balance {
+    flex-grow: 1;
+    text-align: right;
+    padding: 0px 20px;
+}
+
+.menu_bar .menu_btns .menu_wallet_icon {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.menu_bar .menu_btns .menu_wallet_icon .menu_wallet_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+}
+
+
+.menu_bar .menu_add_btns {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu_bar .menu_add_btns div {
+    padding: 10px;
+    padding: 10px 20px;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.menu_bar .menu_add_btns .menu_add_cash {
+    background-color: rgb(27, 202, 27);
+    color: #fff;
+}
+
+.menu_bar .menu_add_btns .menu_withdraw {
+    background-color: rgb(205, 67, 67);
+    color: #fff;
+}
+
+.menu_bar .menu_btns .menu_value_btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.menu_bar .menu_values {
+    padding: 12px 10px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.129);
+
+}
+
+.menu_bar .menu_exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    rotate: 270deg;
+    cursor: pointer;
+}
+
+@media (max-width:800px) {
+    .menu_bar .menu_window {
+        max-width: 450px;
+    }
+
+  .menu_part {
+        top: 10px;
+        left: 15px;
+    }
+
+  .menu_profile_icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width:500px) {
+    .menu_bar .menu_options {
+        width: 92%;
+    }
+}
