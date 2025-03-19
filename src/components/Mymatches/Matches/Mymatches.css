@@ -39,6 +39,12 @@
     margin-top: 15px;
 }
 
+.active_{
+    
+    background: linear-gradient(159deg, #8c8888 10%, #c1c1c1 100%)!important;
+    color: white !important;
+}
+
 @media (max-width:500px) {
     .my_matches_history_btn div {
         padding: 10px 28px;

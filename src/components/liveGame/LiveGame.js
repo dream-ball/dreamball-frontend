@@ -18,6 +18,34 @@ const LiveGame = () => {
     const [error, setError] = useState("");
     const [userInputs, setUserInput] = useState([])
 
+
+
+    useEffect(() => {
+        const fetchMatchData = async () => {
+            setLoading(true)
+            try {
+                const infoAPI = new URL(server);
+                infoAPI.pathname = `/api/live_match/${match_id}/`;
+
+                const response = await fetch(infoAPI.toString(), {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": localStorage.getItem("auth_token") || "",
+                    },
+                });
+                const jsonData = await response.json();
+
+                if (!response.ok) throw new Error(jsonData.msg);
+                setMatchData(JSON.parse(jsonData.match_data))
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+        fetchMatchData();
+    }, [match_id]);
+
     useEffect(() => {
         const fetchOversData = async () => {
             try {
@@ -29,7 +57,6 @@ const LiveGame = () => {
                     },
                 });
                 const jsonData = await response.json();
-
                 if (!response.ok) throw new Error(jsonData.error);
 
                 if (!jsonData || !jsonData.oversData || !jsonData.matchInfo || !jsonData.oversData) {
@@ -49,8 +76,6 @@ const LiveGame = () => {
                 if (err.message.toLowerCase() === "invalid or expired token") {
                     navigate('/login')
                 }
-                console.error("Error fetching match data:", err);
-                // setError(err.message);
                 setLoading(false);
             }
         };
@@ -79,15 +104,17 @@ const LiveGame = () => {
                 setLoading(false);
             }
         }
+        
         const fetchAll = () => {
             fetchOversData();
             fetchUserOversData();
         }
-        fetchAll();
-        const interval = setInterval(fetchAll, 15000);
-        return () => clearInterval(interval);
-
-    }, [match_id, navigate]);
+        if (!error) {
+            fetchAll();
+            const interval = setInterval(fetchAll, 15000);
+            return () => clearInterval(interval);
+        }
+    }, [match_id, navigate, error]);
     useEffect(() => {
         const fetchSelectedOptions = async (open_over) => {
             const data = {
@@ -124,32 +151,6 @@ const LiveGame = () => {
         }
     }, [openOver, hasFetched])
 
-    useEffect(() => {
-        const fetchMatchData = async () => {
-            setLoading(true)
-            try {
-                const infoAPI = new URL(server);
-                infoAPI.pathname = `/api/live_match/${match_id}/`;
-
-                const response = await fetch(infoAPI.toString(), {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": localStorage.getItem("auth_token") || "",
-                    },
-                });
-                const jsonData = await response.json();
-
-                if (!response.ok) throw new Error(jsonData.msg);
-                setMatchData(JSON.parse(jsonData.match_data))
-                setLoading(false);
-            } catch (err) {
-                console.error("Error fetching match data:", err);
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-        fetchMatchData();
-    }, [match_id]);
     return (
         <div className="max-w-3xl mx-auto p-5">
             {loading ? (

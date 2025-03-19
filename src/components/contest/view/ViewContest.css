@@ -404,3 +404,7 @@
 .flex-row:last-child {
     border-bottom: none;
 }
+.player_winnings{
+    font-size: 15px;
+    color: #5c5c5c;
+}

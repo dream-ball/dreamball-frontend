@@ -40,8 +40,8 @@ export default function UploadBallByBall() {
 
                 const response = await fetch(infoAPI.toString(), {
                     headers: {
-                        "Content-Type": "application/json"
-                        // "Authorization": localStorage.getItem("auth_token") || "",
+                        "Content-Type": "application/json",
+                        "Authorization": localStorage.getItem("auth_token") || "",
                     },
                 });
                 const jsonData = await response.json();
@@ -245,7 +245,7 @@ export default function UploadBallByBall() {
 
     async function SwitchInnings() {
         try {
-            let Confirmation = window.confirm("Are you sure to Switch Innings" + openOvers.over_number)
+            let Confirmation = window.confirm("Are you sure to Switch Innings" + openOvers.innings)
             if (!Confirmation) {
                 throw new Error("Canceled");
 
@@ -266,7 +266,27 @@ export default function UploadBallByBall() {
             display_error(err.message)
         }
     }
-
+    async function endMatch() {
+        try {
+            let Confirmation = window.confirm("Are you sure to End the Match")
+            if (!Confirmation) {
+                throw new Error("Canceled");
+            }
+            server.pathname = `/admin/end-match/${match_id}`
+            const response = await fetch(server, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.getItem("auth_token") || "",
+                },
+            });
+            let result = await response.json()
+            if (!response.ok) throw new Error(result.error);
+            display_error(result.msg)
+        } catch (err) {
+            display_error(err.message)
+        }
+    }
 
     return (
         <>
@@ -306,7 +326,7 @@ export default function UploadBallByBall() {
                                                 type="radio"
                                                 name="team_name"
                                                 value={matchInfo?.team_a_short || "Not Found"}
-                                                checked={formData?.team_name === `${matchInfo?.team_a_short || "Not Found" }`}
+                                                checked={formData?.team_name === `${matchInfo?.team_a_short || "Not Found"}`}
                                                 onChange={handleTeamChange}
                                             />
                                             {matchInfo?.team_a_short || "Not Found"}
@@ -320,7 +340,7 @@ export default function UploadBallByBall() {
                                                 checked={formData.team_name === `${matchInfo?.team_b_short || "Not Found"}`}
                                                 onChange={handleTeamChange}
                                             />
-                                            {matchInfo?.team_b_short  || "Not Found"}
+                                            {matchInfo?.team_b_short || "Not Found"}
                                         </label>
                                     </div>
 
@@ -371,6 +391,8 @@ export default function UploadBallByBall() {
                                 <div className="set_open_overs">
                                     <button onClick={CloseOver}>{`Close Over ${openOvers.over_number}`}</button>
                                     <button onClick={SwitchInnings}>{`End Innings ${openOvers.innings}`}</button>
+                                    <button onClick={endMatch}>{`End Match`}</button>
+
                                 </div>
                             </div>
 
@@ -441,12 +463,12 @@ export default function UploadBallByBall() {
                                                 </tr>
                                             </thead>
 
-                                                </table>
+                                        </table>
 
 
-                                        </>}
+                                    </>}
 
-                                    </div>
+                            </div>
                         </>
                     )}
         </>

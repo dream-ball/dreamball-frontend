@@ -79,13 +79,23 @@ export default function Matches() {
   }, [navigate]);
 
   return (
-    <div style={{paddingBottom:"50px"}}>
+    <div style={{ paddingBottom: "50px" }}>
       <MenuIcon />
       <Header />
       <section className="hero">
         <h2>Upcoming Cricket Matches</h2>
         <p className="tagline">Join the action and win big!</p>
       </section>
+
+      <div style={{padding:"5px"}}>
+        <div class="disclaimer-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>
+            Disclaimer: This beta version may have bugs or incomplete features — please report issues
+            <a href="mailto:support@dream-ball.com">here</a>.
+          </p>
+        </div>
+      </div>
       {loading ? (
         display_loading(true)
       ) : (
@@ -96,7 +106,7 @@ export default function Matches() {
               <div>Current matches</div>
             </div>
               {liveMatches?.length > 0 ? (
-                liveMatches.map((match) => <MatchCard key={match.match_id} match={match} path={`/live/contest/${match.match_id}`}/>)
+                liveMatches.map((match) => <MatchCard key={match.match_id} match={match} path={`/live/contest/${match.match_id}`} />)
               ) : ""}</> : ""}
 
           </div>

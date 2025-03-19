@@ -5,7 +5,7 @@ body {
     color: #333;
 }
 
-/* From Uiverse.io by joe-watson-sbf */ 
+/* From Uiverse.io by joe-watson-sbf */
 .btn {
     font-size: 17px;
     background: transparent;
@@ -18,9 +18,9 @@ body {
     right: 20px;
     transition: 0.5s ease;
     cursor: pointer;
-  }
-  
-  .btn::before {
+}
+
+.btn::before {
     content: "";
     position: absolute;
     left: 0;
@@ -29,18 +29,18 @@ body {
     width: 0;
     background-color: #ffc506;
     transition: 0.5s ease;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     color: #1e1e2b;
     transition-delay: 0.5s;
-  }
-  
-  .btn:hover::before {
+}
+
+.btn:hover::before {
     width: 100%;
-  }
-  
-  .btn::after {
+}
+
+.btn::after {
     content: "";
     position: absolute;
     left: 0;
@@ -50,15 +50,15 @@ body {
     background-color: #ffc506;
     transition: 0.4s ease;
     z-index: -1;
-  }
-  
-  .btn:hover::after {
+}
+
+.btn:hover::after {
     height: 100%;
     transition-delay: 0.4s;
     color: aliceblue;
-  }
+}
 
-  
+
 .header {
     background: linear-gradient(159deg, #2465c1 10%, #2d91a7 100%);
     color: #fff;
@@ -81,7 +81,7 @@ body {
 .hero {
     text-align: center;
     background: linear-gradient(to right, #ffdf0e, #ffe493);
-    padding:10px;
+    padding: 10px;
     margin-bottom: 20px;
 }
 
@@ -95,11 +95,13 @@ body {
     font-size: 16px;
     color: #555;
 }
-.match{
+
+.match {
     max-width: 700px;
     margin: auto;
     padding: 0 6px;
 }
+
 .match_card {
     display: flex;
     justify-content: space-between;
@@ -110,14 +112,14 @@ body {
 
 .matches {
     position: relative;
-    background: linear-gradient(26deg, #ffcd2a72, #fff1f1c3,#ffeded);
+    background: linear-gradient(26deg, #ffcd2a72, #fff1f1c3, #ffeded);
     box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.209);
     margin: auto;
     margin-top: 10px;
     border-radius: 12px 12px;
     overflow: hidden;
-    
-    
+
+
 }
 
 .league {
@@ -130,16 +132,18 @@ body {
     color: #505050;
     padding: 5px 0px;
     padding-left: 10px;
-    background: linear-gradient(24deg, #fff1f1, #fff1f1c3,#ffeded);
+    background: linear-gradient(24deg, #fff1f1, #fff1f1c3, #ffeded);
 
 }
-.league .timing{
+
+.league .timing {
     color: #444444;
 
     flex-grow: 1;
     text-align: right;
     margin-right: 10px;
 }
+
 .match_card .team .team_info {
     display: flex;
     flex-direction: row;
@@ -152,9 +156,11 @@ body {
     flex-direction: column;
     gap: 10px;
 }
-.match_card .team_b{
+
+.match_card .team_b {
     align-items: end;
 }
+
 .match_card .team .img_con {
     width: 70px;
     height: 70px;
@@ -168,12 +174,13 @@ body {
     object-fit: contain;
 }
 
-.match_status{
+.match_status {
     position: absolute;
     top: 35%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
+
 .match_status .live_data {
     display: flex;
     flex-direction: column;
@@ -198,9 +205,10 @@ body {
 
 }
 
-.team_b_name{
+.team_b_name {
     text-align: right;
 }
+
 .team_b_name,
 .team_a_name {
     font-size: 14px;
@@ -216,12 +224,12 @@ body {
 }
 
 .view_card {
-    padding:8px 0px;
+    padding: 8px 0px;
     margin-left: -6px;
     border-top: 1px solid #6e6e6e46;
     display: flex;
     width: 105%;
-    
+
 }
 
 .view_card .match_lean {
@@ -233,35 +241,76 @@ body {
     border-radius: 6px;
 
 }
-.view_card .match_lean span{
+
+.view_card .match_lean span {
 
     font-weight: bolder;
 }
-.upc_matches{
-margin-bottom: 15px;
-font-weight: bold;
-}
-.no_matches_found{
-    text-align: center;
-    padding: 20px;
-    font-size:20px;
+
+.upc_matches {
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
-.my_matches{
+.no_matches_found {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.my_matches {
     margin-bottom: 20px;
 }
+
+
+.disclaimer-box {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: #fffbe6;
+    /* Light yellow background */
+    border-left: 5px solid #f39c12;
+    /* Orange left border */
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    max-width: 500px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.disclaimer-box i {
+    font-size: 18px;
+    color: #f39c12;
+    margin-right: 5px;
+}
+
+.disclaimer-box a {
+    margin-left:5px;
+    color: #d35400;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.disclaimer-box a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width:800px) {
     .header {
-        padding:15px;
+        padding: 15px;
         font-size: 30px;
     }
+
     .hero h2 {
-        
+
         font-size: 20px;
     }
-    .match_card .team  .img_con{
-        width:60px;
+
+    .match_card .team .img_con {
+        width: 60px;
         height: 60px;
     }
 }
@@ -271,42 +320,44 @@ font-weight: bold;
     .header {
         font-size: 25px;
     }
+
     .hero h2 {
-        
+
         font-size: 20px;
     }
 
 
-    .match_card .team  .img_con{
-        width:55px;
+    .match_card .team .img_con {
+        width: 55px;
         height: 55px;
     }
-   
-.match_card .team_b_nick,
-.match_card .team_a_nick{
+
+    .match_card .team_b_nick,
+    .match_card .team_a_nick {
         font-size: 14px;
 
     }
+
     .team_b_name,
-.team_a_name {
-    font-size: 13px;
-}
+    .team_a_name {
+        font-size: 13px;
+    }
 }
 
 @media (max-width:450px) {
-    .match_card .team  .img_con{
-        width:50px;
+    .match_card .team .img_con {
+        width: 50px;
         height: 50px;
     }
-   
-.match_card .team_b_nick,
-.match_card .team_a_nick{
+
+    .match_card .team_b_nick,
+    .match_card .team_a_nick {
         font-size: 13px;
 
     }
-    .team_b_name,
-.team_a_name {
-    font-size: 12.5px;
-}
-}
 
+    .team_b_name,
+    .team_a_name {
+        font-size: 12.5px;
+    }
+}

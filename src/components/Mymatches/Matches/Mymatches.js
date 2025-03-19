@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Mymatches() {
     const navigate = useNavigate();
-    const [activePage, setActivePage] = useState('live');
+    const [activePage, setActivePage] = useState('matches');
     const [matches, setMatches] = useState(null);
     const [liveMatches, setLiveMatches] = useState(null);
     const [loading, setLoading] = useState(true)
@@ -56,7 +56,7 @@ export default function Mymatches() {
 
         <>{loading ? display_loading(true) :
             <>
-            {display_loading(false)}
+                {display_loading(false)}
                 <div className="my_header">
                     <div className="my_exit" onClick={() => (navigate(-1))}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24">
@@ -68,9 +68,9 @@ export default function Mymatches() {
 
                 <div className="my_matches_con">
                     <div className="my_matches_history_btn">
-                        <div className="my_history_upcoming" onClick={() => { setActivePage('matches') }}>Upcoming</div>
-                        <div className="my_history_live" onClick={() => { setActivePage("live"); }}>Live</div>
-                        <div className="my_history_history" onClick={() => { setActivePage("history"); }}>History</div>
+                        <div className={`${activePage==="matches" ? "active_" :"my_history_upcoming"}`}  onClick={() => { setActivePage('matches') }}>Upcoming</div>
+                        <div className={`${activePage==="live" ? "active_":"my_history_live" }`} onClick={() => { setActivePage("live"); }}>Live</div>
+                        <div className={`${activePage ==="history" ? "active_":"my_history_history"}  `} onClick={() => { setActivePage("history"); }}>History</div>
                     </div>
                     <div className="my_display_con">
                         {activePage === "matches" &&
@@ -98,8 +98,8 @@ export default function Mymatches() {
                                 </div>
                                 <div className="match">
                                     {loading ? "" : liveMatches.length > 0 ? liveMatches.map((match) => <MatchCard key={match.match_id} match={match} path={`/live/contest/${match.match_id}`} />) : <div>
-                                       <div className="no_matches_found">
-                                        No live matches found
+                                        <div className="no_matches_found">
+                                            No live matches found
                                         </div>
                                     </div>}
                                 </div>

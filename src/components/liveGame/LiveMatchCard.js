@@ -71,8 +71,7 @@ export default function LiveMatchCard({ match_data, overs_data, match_info }) {
                     </div>
                     <div className="ball_details">
                         <div className="ball_con">
-
-                            {overs_data[0][Object.keys(overs_data[0]).length].at(1).overs.map((overs, index) => {
+                            {overs_data[0][Object.keys(overs_data[0]).length].at(0).overs.map((overs, index) => {
                                 return <div className={'_' + overs} key={index}><p>{overs}</p></div>
                             })}
                             <div className="over_on">Over ({parseInt(match_info.balling_team) === match_info.team_a_id ? match_info.team_b_over : match_info.team_a_over})</div>

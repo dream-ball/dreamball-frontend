@@ -1,5 +1,5 @@
-// const server = new URL(window.location.origin)
-const server = new URL("https://13.127.231.62")
+const server = new URL(window.location.origin)
+// const server = new URL("https://13.127.231.62")
 server.port = 5000
 function display_error(err_msg) {
 
