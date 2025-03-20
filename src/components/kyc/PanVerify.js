@@ -16,6 +16,7 @@ const PanVerify = () => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
   const [age, setAge] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -35,6 +36,7 @@ const PanVerify = () => {
       middleName,
       lastName,
       age,
+      dob,
       city,
       state,
       panNumber,
@@ -44,7 +46,7 @@ const PanVerify = () => {
       panImage
     };
 
-    if (firstName && firstName.trim() !== "" && lastName && lastName.trim() !== "" && age && !isNaN(age) && age > 0 &&
+    if (firstName && firstName.trim() !== "" && lastName && lastName.trim() !== "" && dob && age && !isNaN(age) && age > 0 &&
       city && city.trim() !== "" && state && state.trim() !== "" && panNumber && panNumber.trim() !== "" && aadhaarNumber && aadhaarNumber.trim() !== "" &&
       aadhaarFrontImage && aadhaarBackImage && panImage) {
 
@@ -52,7 +54,6 @@ const PanVerify = () => {
       setMessage("Required all fields")
       return;
     }
-
 
     try {
       server.pathname = '/api/getPan'
@@ -88,6 +89,8 @@ const PanVerify = () => {
             setMiddleName,
             lastName,
             setLastName,
+            dob,
+            setDob,
             age,
             setAge,
             city,

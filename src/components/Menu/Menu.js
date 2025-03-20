@@ -29,8 +29,7 @@ export default function MenuIcon() {
             }
         }
         menu_data();
-    }, [])
-
+    }, [])  
     return (
         <>
             {userData.length > 0 ? <>
@@ -67,7 +66,6 @@ export default function MenuIcon() {
                                         <path d="m3.293 11.293 1.414 1.414L11 6.414V20h2V6.414l6.293 6.293 1.414-1.414L12 2.586l-8.707 8.707z" />
                                     </svg>
                                 </div>
-
                                 <div className="menu_header">
                                     <div className="menu_user_profile">
                                         <img className="menu_user_profile_img" src={userData[0].user_profile} alt="User"></img>
@@ -82,7 +80,7 @@ export default function MenuIcon() {
                                             <div className="menu_balance">
                                                 <div className="menu_wallet_icon"><img className="menu_wallet_img" src={walletIcon} alt="wallett"></img></div>
                                                 <div className="menu_my_balance">My Balance</div>
-                                                <div className="menu_acnt_balance">₹{userData[0].funds}</div>
+                                                <div className="menu_acnt_balance">₹{(userData[0].funds+userData[0].deposits).toLocaleString()}</div>
                                             </div>
                                             <div className="menu_add_btns">
                                                 <div className="menu_add_cash" onClick={() => {
