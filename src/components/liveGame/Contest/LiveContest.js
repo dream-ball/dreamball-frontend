@@ -12,6 +12,7 @@ export default function LiveContest() {
     const [matchData, setMatchData] = useState([null])
     const [matchInfo, setMatchInfo] = useState([])
     const [overInfo, setOverInfo] = useState([])
+    const [enterMatch,setEnterMatch]=useState(false)
 
     const [contest, SetContest] = useState("")
 
@@ -119,13 +120,19 @@ export default function LiveContest() {
 
                     <div className="contest_con">
                         <LiveMatchCard match_id={match_id} match_data={matchData} overs_data={overInfo} match_info={matchInfo} />
-                        <div className="contest_header">
+                        <div className="contest_header uni_e">
                             <div className="header_content"><h2>Joined Contests</h2></div>
-                            <div className="match_btn" onClick={() => { navigate(`/live/match/${match_id}`) }}>Enter Match</div>
+                            <div className={`match_btn ${!enterMatch ? "joined": null}`} onClick={() => { 
+                                return (enterMatch ? navigate(`/live/match/${match_id}`):null)}
+                                }>Enter Match</div>
                         </div>
-                        {contest.map((contest, index) => (
-                            <LiveContestCard key={index} contest={contest} prize_detail={contest} />
-                        ))
+                        {contest.map((contest, index) => {
+                            if(contest.status==="live" && !enterMatch ){
+                                setEnterMatch(true)
+                            }
+
+                            return (<LiveContestCard key={index} contest={contest} prize_detail={contest} />)
+                        })
                         }
                     </div>
                 </div>

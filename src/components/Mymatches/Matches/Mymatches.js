@@ -26,9 +26,7 @@ export default function Mymatches() {
                 });
 
                 const data = await res.json();
-                if (!res.ok) throw new Error(data.msg || "Something went wrong");
-
-
+                if (!res.ok) throw new Error(data.error);
 
                 let upc_matches = (data.upcoming_matches.status) ? true : false
                 if (!upc_matches) {
@@ -39,6 +37,8 @@ export default function Mymatches() {
                     setLiveMatches(data.live_matches)
                 }
             } catch (error) {
+                setMatches([])
+                setLiveMatches([])
                 if ((error.message).toLowerCase() === "invalid or expired token") {
                     window.location.href = "/login"
                 }

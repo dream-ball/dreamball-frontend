@@ -50,12 +50,12 @@ const ViewContestCard = ({ matchData, contests, prize_detail, registerContest, j
           <div className="view view_cnt_card" id="1">
             <div className="card">
               <div className="prize_pool_tag">
-                {currentPrizePool ? <p>Current Prize Pool</p> : ""}
+                {currentPrizePool && contests.entry_fee!==0 ? <p>Current Prize Pool</p> : ""}
                 <p>{contests.entry_fee === 0 ? "" : "Max Prize Pool"}</p>
               </div>
               <div className="total_prize">
-                {currentPrizePool ? <div>₹{formatNumber(currentPrizePool)}</div> : ""}
-                <div>₹{formatNumber(contests.prize_pool)}</div>
+                {currentPrizePool && contests.entry_fee !==0 ? <div>₹{formatNumber(currentPrizePool)}</div> : ""}
+                <div>{ currentPrizePool && contests.entry_fee !==0 ?`₹${formatNumber(contests.prize_pool)}`:"Practice Contest"}</div>
               </div>
               <div className="filled_bar">
                 <div className="spots">

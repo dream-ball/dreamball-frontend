@@ -1,6 +1,7 @@
-const server = new URL(window.location.origin)
-// const server = new URL("https://13.127.231.62")
-server.port = 5000
+// const server = new URL(window.location.origin)
+// server.protocol='http'
+const server = new URL("https://api.dream-ball.com")
+// server.port = 5000
 function display_error(err_msg) {
 
   let con = document.getElementById("error-box")
@@ -135,7 +136,5 @@ function formatNumber(num) {
     return num.toLocaleString("en-IN"); // Indian-style comma formatting
   }
 }
-
-
 
 module.exports = { server, display_error, prize_data, timeLeft, display_loading, formatNumber }

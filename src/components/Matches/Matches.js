@@ -88,8 +88,8 @@ export default function Matches() {
       </section>
 
       <div style={{padding:"5px"}}>
-        <div class="disclaimer-box">
-          <i class="fas fa-exclamation-triangle"></i>
+        <div className="disclaimer-box">
+          <i className="fas fa-exclamation-triangle"></i>
           <p>
             Disclaimer: This beta version may have bugs or incomplete features — please report issues
             <a href="mailto:support@dream-ball.com">here</a>.

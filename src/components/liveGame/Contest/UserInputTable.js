@@ -94,7 +94,7 @@ export default function UserInputTable({ openOver, selectedOptions, setHasFetche
       console.log("Success:", result);
     } catch (error) {
       setLoading(false);
-      display_error("Submission Failed");
+      display_error(error.message);
       console.error("Error:", error);
     }
   };

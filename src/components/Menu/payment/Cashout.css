@@ -1,0 +1,130 @@
+.cashout-container {
+    max-width:480px;
+    margin: 50px auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cashout-container h2 {
+    margin-left: 12px;
+}
+
+.account-transfer {
+    background: #e0eafb;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    width: 88%;
+    margin: 15px auto;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    border: 2px solid rgb(91, 91, 255);
+    color: rgb(52, 52, 202);
+    font-weight: bold;
+}
+
+.cashout-container form {
+    text-align: center;
+}
+
+.cashout-container input {
+    width: 90%;
+    padding: 10px 0 10px 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.amount-buttons {
+    display: flex;
+    width:95%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.checkbox-container-condition{
+    text-align: left;
+    margin-left: 18px;
+    padding: 5px;
+    font-size: 14px;
+    width:100%;
+    color: #818181;
+}
+.amount-buttons button {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.amount-buttons .selected {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.cashout-button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.balance-card {
+    max-width: 300px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin: 10px auto;
+  }
+  
+  .balance-section {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .balance-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .wallet { color: #007bff; }
+  .deposit { color: #28a745; }
+  .winning { color: #ff9800; }
+  
+  .balance-label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .balance-amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  

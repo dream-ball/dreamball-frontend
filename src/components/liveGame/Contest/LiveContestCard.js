@@ -16,7 +16,7 @@ export default function LiveContestCard({ contest, prize_detail }) {
                 <p>{prize_details["max_prize"] === 0 ? "Practice Contest" : "Prize Pool"}</p>
                 <div className="total_prize">
                     <div> {contest.prize_pool > 0 ? `₹${formatNumber(contest.prize_pool)}` : "Free"}</div>
-                    <div contest_id={contest.contest_id} onClick={() => navigate(`/live/contest/${match_id}/${contest.contest_id}`)} className={contest.status.toLowerCase() === 'live' ? "entry" : "entry joined"}>{contest.status.toLowerCase() === 'live' ? "VIEW" : "Cancled"}</div>
+                    <div contest_id={contest.contest_id} onClick={() => navigate(`/live/contest/${match_id}/${contest.contest_id}`)} className={contest.status.toLowerCase() === 'live' ? "entry" : "entry joined"}>{contest.status.toLowerCase() === 'live' ? "VIEW" : "cancelled "}</div>
                 </div>
             </div>
             <div className="prize">
@@ -31,11 +31,12 @@ export default function LiveContestCard({ contest, prize_detail }) {
             <div className="contest_rank">
                 {
                     contest.status.toLowerCase() === "live" ?
-                        <div className="contest_rank_header">
-                            <div className="rank">Rank <p>#1</p></div>
-                            <div className="points">Points <p>35</p></div>
-                            <div className="winings" >winnings <p>₹0.1</p></div>
-                        </div> :
+                        // <div className="contest_rank_header">
+                        //     <div className="rank">Rank <p>#1</p></div>
+                        //     <div className="points">Points <p>35</p></div>
+                        //     <div className="winings" >winnings <p>₹0.1</p></div>
+                        // </div>
+                        <></> :
                         <div className="contest_rank_header"><div> Contest cancled. Money will be Refunded </div></div>
 
                 }

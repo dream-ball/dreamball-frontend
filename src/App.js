@@ -11,9 +11,10 @@ import ViewContest from "./components/contest/view/ViewContest.js";
 import Mymatches from "./components/Mymatches/Matches/Mymatches.js";
 import NotFound from "./components/NotFound/NotFound.js";
 import LiveContest from './components/liveGame/Contest/LiveContest.js'
-import UploadBallByBall from "./components/Admin/UploadBallByBall.js";
-import LiveMatchesUp from "./components/Admin/LiveMatchesUp.js";
 import ViewLiveContest from "./components/liveGame/Contest/view/ViewLiveContest.js";
+import  AddCash  from "./components/Menu/payment/AddCash.js";
+import Cashout from "./components/Menu/payment/CashOut.js";
+import PanVerify from "./components/kyc/PanVerify.js";
 
 
 function App() {
@@ -48,11 +49,10 @@ function App() {
             <Route path="/Mymatches" element={<Mymatches />} />
             <Route path="/live/contest/:match_id" element={<LiveContest />} />
             <Route path="/live/contest/:match_id/:contest_id" element={<ViewLiveContest />} />
-
             <Route path="/live/match/:match_id" element={<LiveGame />} />
-            <Route path="/admin/live/match/:match_id" element={<UploadBallByBall />} />
-            <Route path="/admin/live/" element={<LiveMatchesUp />} />
-
+            <Route path="/add-cash" element={<AddCash/>} />
+            <Route path="/withdraw" element={<Cashout/>}/>
+            <Route path="/kyc" element={<PanVerify/>}/>
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
