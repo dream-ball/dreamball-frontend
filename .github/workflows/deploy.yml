@@ -22,7 +22,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@13.233.128.22 << 'EOF'
             cd /home/ec2-user/dreamball-frontend
-            git pull origin main
+            git pull origin master
             npm install
             npm run build
             sudo cp -r build/* /var/www/html
