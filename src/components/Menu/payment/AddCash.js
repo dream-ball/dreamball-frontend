@@ -197,7 +197,7 @@ export const AddCash = () => {
                     </div>
                   </div>
                 </div>
-                {message && <div className="message"> <FaTimesCircle style={{ color: "red" }} /> <p>{message}</p></div>}
+                {!paymentSuccess && message && <div className="message"> <FaTimesCircle style={{ color: "red" }} /> <p>{message}</p></div>}
                 {paymentSuccess && <div className="success"><FaCheckCircle style={{ color: "green" }} /> <p> Payment successfull </p></div>}
                 <form>
                   <input

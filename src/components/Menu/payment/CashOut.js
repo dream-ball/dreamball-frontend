@@ -1,14 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Cashout.css";
 import { FaUniversity } from "react-icons/fa"
 import { useNavigate } from "react-router-dom";
-import { display_error } from "../../../utils/utils";
+import { display_error, server } from "../../../utils/utils";
 import { FaWallet, FaMoneyBillWave, FaTrophy } from "react-icons/fa";
 const Cashout = () => {
   const navigate = useNavigate();
 
   const [amount, setAmount] = useState("");
   const [selectedAmount, setSelectedAmount] = useState(null);
+
+  useEffect(() => {
+    const fetchKycStatus = async () => {
+      try {
+
+        server.pathname = "/api/kyc-status/";
+        const resLive = await fetch(server, {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": localStorage.getItem("auth_token")
+              ? `Bearer ${localStorage.getItem("auth_token")}`
+              : "",
+          },
+        });
+
+        const kycData = await resLive.json();
+        if (!resLive.ok) throw new Error(kycData.error || "Something went wrong");
+
+        if (kycData.status === "pending") {
+          display_error("You KYC status is pending please wait")
+          navigate("/kyc");
+
+        }
+        if (kycData.status === "rejected") {
+          navigate("/kyc");
+
+        }
+
+      } catch (error) {
+        if ((error.message).toLowerCase() === "invalid or expired token") {
+          navigate("/login");
+        } else {
+          if (error.message === "No KYC record found for this user") {
+            display_error("Please complete your KYC verification")
+            navigate("/kyc");
+
+          }
+          else {
+            display_error(error.message);
+          }
+        }
+      }
+    };
+
+    fetchKycStatus();
+  }, [navigate]);
+
+
+
 
 
   const handleAmountClick = (value) => {

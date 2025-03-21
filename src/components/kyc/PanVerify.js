@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserDetails from "./UserDetails";
 import PanVerification from "./PanVerification";
 import AadharVerification from "./AadharVerification";
 import SelfieVerification from "./SelfieVerification";
-import VerificationNotify from "./VerificationNotify";
-import SomethingWentWrong from "./SomethingWentWrong";
-
+//import VerificationNotify from "./VerificationNotify";
 import "./PanVerify.css";
-import { server } from "../../utils/utils";
+import { display_error, display_loading, server } from "../../utils/utils";
+import { useNavigate } from "react-router-dom";
+import Submitted from "./Submitted";
+import VerificationNotify from "./VerificationNotify";
+
 
 // import AddCash from "../addcash/AddCash";
 // import WithdrawCash from "../Widthdrawcash/WidthdrawCash";
@@ -26,8 +28,10 @@ const PanVerify = () => {
   const [aadhaarFrontImage, setAadhaarFrontImage] = useState("");
   const [aadhaarBackImage, setAadhaarBackImage] = useState("");
   const [selfie, setSelfie] = useState(null);
-  const [onPage, setOnPage] = useState(0);
+  const [onPage, setOnPage] = useState(6);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate()
+  // const [loading, setLoading] = useState(true);
 
   const submit = async () => {
 
@@ -59,24 +63,81 @@ const PanVerify = () => {
       server.pathname = '/api/getPan'
       const response = await fetch(server, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": localStorage.getItem("auth_token") || ""
+
+        },
         body: JSON.stringify(requestBody)
       });
 
-      const result = response.json()
+      const result = await response.json()
 
       console.log(result)
 
       if (response.ok) {
-        setOnPage(4); // Move to VerificationNotify
+        setOnPage(5); // Move to VerificationNotify
       } else {
-        setOnPage(5); // Move to SomethingWentWrong
+        throw new Error(result.error);
+        // Move to SomethingWentWrong
       }
     } catch (error) {
       console.error("Error submitting data:", error);
-      setOnPage(5); // Move to SomethingWentWrong
+      setMessage(error.message)
     }
   };
+
+
+
+  useEffect(() => {
+    const fetchKycStatus = async () => {
+      try {
+
+        server.pathname = "/api/kyc-status/";
+        const resLive = await fetch(server, {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": localStorage.getItem("auth_token")
+              ? `Bearer ${localStorage.getItem("auth_token")}`
+              : "",
+          },
+        });
+
+        const kycData = await resLive.json();
+        if (!resLive.ok) throw new Error(kycData.error || "Something went wrong");
+
+        if (kycData.status === "pending") {
+          setOnPage(4)
+        }
+        if (kycData.status === "rejected") {
+          display_error("You Kyc was rejected...please try again")
+          setOnPage(0)
+        }
+
+        if (kycData.status === "verified") {
+          setOnPage(5)
+        }
+
+      } catch (error) {
+        if ((error.message).toLowerCase() === "invalid or expired token") {
+          navigate("/login");
+        } else {
+          if (error.message === "No KYC record found for this user") {
+            setOnPage(0)
+          }
+          else {
+            display_error(error.message);
+          }
+        }
+      } finally {
+        display_loading(false);
+      }
+    };
+
+    fetchKycStatus();
+  }, [navigate]);
+
+
 
   switch (onPage) {
     case 0:
@@ -120,11 +181,16 @@ const PanVerify = () => {
         />
       );
     case 3:
-      return <SelfieVerification {...{ selfie, setSelfie, setOnPage, submit,message }} />;
+      return <SelfieVerification {...{ selfie, setSelfie, setOnPage, submit, message }} />;
     case 4:
-      return <VerificationNotify />;
+      return <Submitted />
+    case 5:
+      return <VerificationNotify />
+
+    case 6:
+      return <> {display_loading(true)}</>
     default:
-      return <SomethingWentWrong />;
+      return;
   }
 
 };

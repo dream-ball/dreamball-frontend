@@ -1,0 +1,30 @@
+name: Deploy Dreamball App to AWS
+
+on:
+  push:
+    branches:
+      - master  # Triggers when code is pushed to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs on GitHub's server, NOT your EC2 instance
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Pulls latest code into GitHub Actions
+
+      - name: Set Up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.AWS_PRIVATE_KEY }}  # Uses private key from GitHub Secrets
+
+      - name: Deploy to AWS
+        run: |
+          ssh -o StrictHostKeyChecking=no ec2-user@13.233.128.22 << 'EOF'
+            cd /home/ec2-user/dreamball-frontend
+            git pull origin main
+            npm install
+            npm run build
+            sudo cp -r build/* /var/www/html
+            sudo systemctl restart nginx.service
+          EOF

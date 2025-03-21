@@ -7,15 +7,11 @@ const UserDetails = ({ firstName, setFirstName, middleName, setMiddleName, dob, 
   const navigate = useNavigate()
 
   const checkValues = () => {
-
-
     if (firstName === "" || lastName === "") {
-
       setMessage("Fill all the fields")
       setOnPage(0);
       return;
     }
-
     if (age < 18) {
       setMessage("Under 18 not allowed");
       setOnPage(0);
@@ -23,19 +19,18 @@ const UserDetails = ({ firstName, setFirstName, middleName, setMiddleName, dob, 
     }
     const dobPattern = /^\d{2}\/\d{2}\/\d{4}$/; // DD/MM/YYYY format
     if (!dobPattern.test(dob)) {
-      alert("Please enter DOB in DD/MM/YYYY format.");
+      setMessage("Please enter DOB in DD/MM/YYYY format.");
+      setOnPage(0);
+
       return;
     }
-
     if (city === "" || state === "") {
       setMessage("Fill all the fields")
       setOnPage(0);
       return;
     }
-
     setOnPage(1);
   };
-
 
   return (
     <>
@@ -63,7 +58,6 @@ const UserDetails = ({ firstName, setFirstName, middleName, setMiddleName, dob, 
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
-
           <label>Middle Name:</label>
           <input
             type="text"
@@ -80,7 +74,6 @@ const UserDetails = ({ firstName, setFirstName, middleName, setMiddleName, dob, 
             onChange={(e) => setLastName(e.target.value)}
             required
           />
-
           <label>DOB:</label>
           <input
             type="text"
