@@ -36,8 +36,6 @@ export default function MenuIcon() {
     return (
         <>
             {userData.length > 0 ? <>
-
-
                 <div className="menu_part">
                     <div className="menu_profile_icon" onClick={() => {
                         let menu_window = document.getElementById("menu_window")
