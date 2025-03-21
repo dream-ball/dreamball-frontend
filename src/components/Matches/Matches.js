@@ -14,7 +14,7 @@ export default function Matches() {
   const [liveMatches, setLiveMatches] = useState(null);
   const [loading, setLoading] = useState(false);
 
-console.log("hey its new server");
+console.log("hey its old server");
 
   useEffect(() => {
     const fetchMatches = async () => {
