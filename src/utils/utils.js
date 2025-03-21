@@ -1,7 +1,7 @@
-const server = new URL(window.location.origin)
-server.protocol="http"
-// const server = new URL("https://api.dream-ball.com")
-server.port = 5000
+// const server = new URL(window.location.origin)
+// server.protocol="http"
+const server = new URL("https://api.dream-ball.com")
+// server.port = 5000
 function display_error(err_msg) {
 
   let con = document.getElementById("error-box")
