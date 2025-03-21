@@ -13,9 +13,7 @@ export default function LiveContest() {
     const [matchInfo, setMatchInfo] = useState([])
     const [overInfo, setOverInfo] = useState([])
     const [enterMatch,setEnterMatch]=useState(false)
-
     const [contest, SetContest] = useState("")
-
     const fetchMatchData = useCallback(async () => {
         try {
             const matchUrl = new URL(server);
@@ -85,10 +83,8 @@ export default function LiveContest() {
         }
     }, [fetchMatchData, error]);
     return (
-
         <>
             {loading ? display_loading(true) : error ? <>{error.toLowerCase() === "invalid or expired token" ? <> {display_error(error)}{navigate('/login')}</> : display_error(error)}{display_loading(false)}</> : <>
-
                 {display_loading(false)}
                 <div className="my_header">
                     <div className="my_exit" onClick={() => (navigate(-1))}>
@@ -130,7 +126,6 @@ export default function LiveContest() {
                             if(contest.status==="live" && !enterMatch ){
                                 setEnterMatch(true)
                             }
-
                             return (<LiveContestCard key={index} contest={contest} prize_detail={contest} />)
                         })
                         }

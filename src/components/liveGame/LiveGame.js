@@ -10,6 +10,7 @@ const LiveGame = () => {
     const [oversData, setOversData] = useState([]);
     const [matchData, setMatchData] = useState([]);
     const [openOver, setOpenOver] = useState([])
+    const [overState,setOverState] =useState([0])
     const [selectedOptions, SetSelectedOptions] = useState([])
     const [hasFetched, setHasFetched] = useState(false);
     const [activeBlock, setActiveBlock] = useState("overs")
@@ -19,6 +20,9 @@ const LiveGame = () => {
     const [userInputs, setUserInput] = useState([])
 
 
+    useEffect(()=>{
+        setHasFetched(false)
+    },[overState])
 
     useEffect(() => {
         const fetchMatchData = async () => {
@@ -66,6 +70,8 @@ const LiveGame = () => {
                 const oversData = jsonData.oversData;
                 const infoData = jsonData.matchInfo[0];
                 setOpenOver(jsonData.openOver)
+                // console.log(jsonData.openOver[0].over_number);
+                setOverState(jsonData.openOver[0].over_number)
                 if (!oversData[0].status) {
                     setOversData(Array.isArray(oversData) ? oversData : []);
                 }

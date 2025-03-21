@@ -5,7 +5,7 @@ import practiceImg from './practice.png'
 import { useNavigate } from "react-router-dom";
 
 
-const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContest, join, timeRemaining, currentFill, contestType, currentPrizePoll, leaderBoard, playersCount }) => {
+const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContest, join, timeRemaining, currentFill, contestType, currentPrizePoll, leaderBoard, playersCount, userPosition }) => {
   const navigate = useNavigate();
   const [activeHeader, setActiveHeader] = useState('leaderboard');
   const handleHeaderClick = (header) => setActiveHeader(header);
@@ -140,6 +140,40 @@ const ViewLiveContestCard = ({ matchData, contests, prize_detail, registerContes
               </div>
             }
             <div className='players_board_live' id="players_board">
+              <div className='teams_count'>
+                <p className='info'>You</p>
+              </div>
+              <div className="flex-table">
+                <div className="flex-row table-header">
+                  <div className="flex-cell">Rank</div>
+                  <div className="flex-cell">Players</div>
+                  <div className="flex-cell">Points</div>
+                </div>
+                {userPosition.length === 0 ? null : (
+                  <>
+                    {userPosition.map((player, index) =>
+                        
+                        <div key={index} className="flex-row">
+                          <div className="flex-cell">{player.position}</div>
+                          <div className="flex-cell">
+                            <div className="user_con">
+                              <div className="lBoard_user_profile">
+                                <img src={player.user_profile} alt="user" />
+                              </div>
+                              <div className="user_data">
+                                <span>{player.user_name}</span>
+                                <span className="player_winnings">₹{formatNumber(player.winnings)}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-cell">{player.points}</div>
+                        </div>
+                      
+                    )}
+                  </>
+                )}
+
+              </div>
               <div className='teams_count'>
                 <p className='info'>All Teams({formatNumber(playersCount)})</p>
               </div>

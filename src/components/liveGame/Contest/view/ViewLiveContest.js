@@ -16,6 +16,7 @@ function ViewLiveContest() {
     const [join, setJoin,] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [userPosition, setUSerPosistion] = useState([])
     useEffect(() => {
         setJoin(true);
     }, []);
@@ -54,6 +55,7 @@ function ViewLiveContest() {
 
             setLeaderBoard(data.leaderBoard.leaderBoard_data);
             setPlayersCount(data.leaderBoard.players_count)
+            setUSerPosistion(data.leaderBoard.user_position);
             if (data.max_fill) {
                 setCurrentFill(data.current_fill);
                 setCurrentPrizePool(data.current_prizePool)
@@ -127,6 +129,7 @@ function ViewLiveContest() {
                     join={join}
                     currentPrizePoll={currentPrizePoll}
                     timeRemaining={"Live"}
+                    userPosition={userPosition}
                     leaderBoard={leaderBoard}
                     playersCount={playersCount}
                     currentFill={currentFill}

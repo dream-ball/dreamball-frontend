@@ -12,13 +12,30 @@ export default function LiveContestCard({ contest, prize_detail }) {
     return (
         <div className="cnt_card" id={`${contest.contest_id}`} >
             <div className="layer_link"></div>
-            <div className="card" >
+
+
+            <div className="card">
                 <p>{prize_details["max_prize"] === 0 ? "Practice Contest" : "Prize Pool"}</p>
                 <div className="total_prize">
-                    <div> {contest.prize_pool > 0 ? `₹${formatNumber(contest.prize_pool)}` : "Free"}</div>
-                    <div contest_id={contest.contest_id} onClick={() => navigate(`/live/contest/${match_id}/${contest.contest_id}`)} className={contest.status.toLowerCase() === 'live' ? "entry" : "entry joined"}>{contest.status.toLowerCase() === 'live' ? "VIEW" : "cancelled "}</div>
+                    <div>{contest.prize_pool > 0 ? `₹${formatNumber(contest.prize_pool)}` : "Free"}</div>
+
+                    {/* Store status in a variable to avoid redundant checks */}
+                    {contest.status.toLowerCase() === "live" ? (
+                        <div
+                            data-contest-id={contest.contest_id} // Use data attribute instead of custom ones
+                            onClick={() => navigate(`/live/contest/${match_id}/${contest.contest_id}`)}
+                            className="entry"
+                        >
+                            VIEW
+                        </div>
+                    ) : (
+                        <div className="entry joined">Cancelled</div>
+                    )}
                 </div>
             </div>
+
+
+
             <div className="prize">
                 <div className="top_prize">🥇</div>
                 <div className="amt">

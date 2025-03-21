@@ -7,7 +7,6 @@ import { display_error, server } from "../../utils/utils";
 export default function MenuIcon() {
     const [userData, setUserData] = useState([])
     let body = document.getElementById("body")
-
     const navigate = useNavigate();
     useEffect(() => {
         async function menu_data() {
@@ -108,18 +107,11 @@ export default function MenuIcon() {
                                             navigate('/kyc')
                                         }}>KYC status</div>
                                     </div>
-                                    <div className="menu_value_btns">
-                                        <div className="menu_values" onClick={() => {
-                                            body.style.overflow = "scroll"
-                                            navigate('/Mymatches')
-                                        }}
-                                        >My matches</div>
-                                        <div className="menu_values" onClick={() => {
-                                            body.style.overflow = "scroll"
-                                            localStorage.removeItem('auth_token')
-                                            navigate('/login')
-                                        }}>Log out</div>
-                                    </div>
+                                    <div className="menu_values" onClick={() => {
+                                        body.style.overflow = "scroll"
+                                        localStorage.removeItem('auth_token')
+                                        navigate('/login')
+                                    }}>Log out</div>
                                 </div>
                             </div>
                         </div>
