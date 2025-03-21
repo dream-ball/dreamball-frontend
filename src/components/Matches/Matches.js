@@ -66,6 +66,7 @@ console.log("hey it's me an update");
         }
 
       } catch (error) {
+        
         if ((error.message).toLowerCase() === "invalid or expired token") {
           navigate("/login");
         } else {

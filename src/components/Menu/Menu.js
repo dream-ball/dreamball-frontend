@@ -21,15 +21,18 @@ export default function MenuIcon() {
                     },
                 });
                 let result = await response.json()
-                if (!response.ok) throw new Error(result.error);
+                if (!response.ok) throw new Error(result.msg);
                 setUserData(result.user_data)
             }
             catch (err) {
+                if ((err.message).toLowerCase() === "invalid or expired token") {
+                    navigate("/login");
+                }
                 display_error(err.message)
             }
         }
         menu_data();
-    }, [])  
+    }, [navigate])
     return (
         <>
             {userData.length > 0 ? <>
@@ -80,7 +83,7 @@ export default function MenuIcon() {
                                             <div className="menu_balance">
                                                 <div className="menu_wallet_icon"><img className="menu_wallet_img" src={walletIcon} alt="wallett"></img></div>
                                                 <div className="menu_my_balance">My Balance</div>
-                                                <div className="menu_acnt_balance">₹{(userData[0].funds+userData[0].deposits).toLocaleString()}</div>
+                                                <div className="menu_acnt_balance">₹{(userData[0].funds + userData[0].deposits).toLocaleString()}</div>
                                             </div>
                                             <div className="menu_add_btns">
                                                 <div className="menu_add_cash" onClick={() => {
@@ -106,6 +109,18 @@ export default function MenuIcon() {
                                             body.style.overflow = "scroll"
                                             navigate('/kyc')
                                         }}>KYC status</div>
+                                    </div>
+                                    <div className="menu_value_btns">
+                                        <div className="menu_values" onClick={() => {
+                                            body.style.overflow = "scroll"
+                                            navigate('/Mymatches')
+                                        }}
+                                        >My matches</div>
+                                        <div className="menu_values" onClick={() => {
+                                            body.style.overflow = "scroll"
+                                            localStorage.removeItem('auth_token')
+                                            navigate('/login')
+                                        }}>Log out</div>
                                     </div>
                                 </div>
                             </div>
