@@ -84,7 +84,7 @@ export default function Matches() {
       <Header />
       <section className="hero">
         <h2>Upcoming Cricket Matches</h2>
-        <p className="tagline">Join the action and win big!</p>
+        <p className="tagline">Join the action and win bigg</p>
       </section>
 
       <div style={{padding:"5px"}}>
