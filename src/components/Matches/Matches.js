@@ -14,6 +14,8 @@ export default function Matches() {
   const [liveMatches, setLiveMatches] = useState(null);
   const [loading, setLoading] = useState(false);
 
+console.log("hey it's me an update");
+
   useEffect(() => {
     const fetchMatches = async () => {
       display_loading(true);
