@@ -21,7 +21,7 @@ jobs:
       - name: Deploy to AWS
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@13.233.128.22 << 'EOF'
-            cd /home/ec2-user/dreamball-frontend
+            cd /home/ubuntu/dreamball-frontend
             git pull origin master
             npm install
             npm run build
