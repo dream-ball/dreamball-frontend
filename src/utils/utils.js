@@ -1,7 +1,7 @@
-const server = new URL(window.location.origin)
-server.protocol="http"
-server.port = 5000
-// const server = new URL("https://api.dream-ball.com")
+// const server = new URL(window.location.origin)
+// server.protocol="http"
+// server.port = 5000
+const server = new URL("https://api.dream-ball.com")
 
 function display_error(err_msg) {
 
