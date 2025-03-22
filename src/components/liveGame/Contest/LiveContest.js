@@ -82,7 +82,7 @@ export default function LiveContest() {
 
 
             try {
-                server = `/api/live/user/rank/${match_id}`
+                server.pathname= `/api/live/user/rank/${match_id}`
                 let ranking = fetch(server, {
                     headers: {
                         "Content-Type": "application/json",
