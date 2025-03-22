@@ -12,7 +12,7 @@ export default function LiveContest() {
     const [matchData, setMatchData] = useState([null])
     const [matchInfo, setMatchInfo] = useState([])
     const [overInfo, setOverInfo] = useState([])
-    const [enterMatch,setEnterMatch]=useState(false)
+    const [enterMatch, setEnterMatch] = useState(false)
     const [contest, SetContest] = useState("")
     const fetchMatchData = useCallback(async () => {
         try {
@@ -22,7 +22,7 @@ export default function LiveContest() {
             const contestUrl = new URL(server);
             contestUrl.pathname = `/api/live_match/contest/${match_id}`;
             const MatchInfoUrl = new URL(server);
-            
+
             MatchInfoUrl.pathname = `/api/live_match/${match_id}/info/`;
 
             const [match_response, contest_response, matchInfo_response] = await Promise.all([
@@ -75,6 +75,35 @@ export default function LiveContest() {
             setLoading(false);
         }
     }, [match_id]);
+
+    useEffect(() => {
+
+        async function fetchuserRank() {
+
+
+            try {
+                server = `/api/live/user/rank/${match_id}`
+                let ranking = fetch(server, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": localStorage.getItem("auth_token") || "",
+                    }
+                })
+                let data = await ranking.json()
+                if (!ranking.ok) {
+                    throw new Error(data.error);
+                }
+            }
+            catch (error) {
+                if (error.message === "Invalid or expired token") {
+                    navigate('/login')
+                }
+            }
+        }
+        fetchuserRank()
+    }, [match_id, navigate])
+
+
     useEffect(() => {
         if (!error) {
             fetchMatchData();
@@ -118,12 +147,13 @@ export default function LiveContest() {
                         <LiveMatchCard match_id={match_id} match_data={matchData} overs_data={overInfo} match_info={matchInfo} />
                         <div className="contest_header uni_e">
                             <div className="header_content"><h2>Joined Contests</h2></div>
-                            <div className={`match_btn ${!enterMatch ? "joined": null}`} onClick={() => { 
-                                return (enterMatch ? navigate(`/live/match/${match_id}`):null)}
-                                }>Enter Match</div>
+                            <div className={`match_btn ${!enterMatch ? "joined" : null}`} onClick={() => {
+                                return (enterMatch ? navigate(`/live/match/${match_id}`) : null)
+                            }
+                            }>Enter Match</div>
                         </div>
                         {contest.map((contest, index) => {
-                            if(contest.status==="live" && !enterMatch ){
+                            if (contest.status === "live" && !enterMatch) {
                                 setEnterMatch(true)
                             }
                             return (<LiveContestCard key={index} contest={contest} prize_detail={contest} />)

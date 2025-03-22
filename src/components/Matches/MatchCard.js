@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { timeLeft } from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
 
-export default function MatchCard({ match ,path }) {
+export default function MatchCard({ match ,path ,type}) {
       const navigate = useNavigate();
 
     const [timeRemaining, setTimeRemaining] = useState(timeLeft(match.match_time, match.date_wise));
@@ -46,8 +46,8 @@ export default function MatchCard({ match ,path }) {
                 </div>
                 <div className="match_status">
                     <div className="live_data">
-                        <p>Match starts in</p>
-                        <h3 className="timeLeft">{timeRemaining}</h3>
+                        {type!=="history" ? <p>Match starts in</p> : null}
+                        <h3 className="timeLeft">{type!=="history"? timeRemaining :'Ended'}</h3>
                     </div>
                 </div>
                 <div className="view_card">

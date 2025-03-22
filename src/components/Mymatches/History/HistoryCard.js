@@ -1,9 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import { display_error, display_loading, server } from "../../../utils/utils";
+import MatchCard from "../../Matches/MatchCard";
 
 export default function History() {
     const [loading, setLoading] = useState(true)
+    const [history, setHistory] = useState([])
 
     useEffect(() => {
         const fetchMatches = async () => {
@@ -17,6 +19,7 @@ export default function History() {
                 });
                 const data = await res.json();
                 if (!res.ok) throw new Error(data.msg || "Something went wrong");
+                setHistory(data);
             } catch (error) {
                 if ((error.message).toLowerCase() === "invalid or expired token") {
                     window.location.href = "/login"
@@ -36,14 +39,25 @@ export default function History() {
 
     return (
         <>
-        {
-            loading? display_loading(true) :<>
-            {display_loading(false)}
-            "history"
-            </>
-        }
+            {
+                loading ? display_loading(true) : <>
+                    {
+                        history.length > 0 ? <>
+                            {display_loading(false)}
+                            {
+                                <>
+                                {console.log(history)}
+                               { history.map(match=> <MatchCard match={match} path={'/'} type={"history"} />)}
+                            </>
+                            }
+
+
+                        </> : null
+                    }
+                </>
+            }
 
         </>
-        
+
     )
 };
