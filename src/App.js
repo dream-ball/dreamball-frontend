@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import "./utils/styles/Utils.css"
 import Login from './components/Login/Login.js'
-import RedirectOnLoad from "./Home.js";
+import LandingPage from "./Home.js";
 import Contest from "./components/contest/Contest.js";
 import LiveGame from "./components/liveGame/LiveGame.js";
 import Matches from "./components/Matches/Matches.js";
@@ -40,7 +40,7 @@ function App() {
 
     return (
         <Routes>
-            <Route path="/" element={<RedirectOnLoad />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/matches" element={<Matches />} />
             <Route path="/contest/:id/" element={<Contest />} />
