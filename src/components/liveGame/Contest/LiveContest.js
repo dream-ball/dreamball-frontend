@@ -13,6 +13,7 @@ export default function LiveContest() {
     const [matchInfo, setMatchInfo] = useState([])
     const [overInfo, setOverInfo] = useState([])
     const [enterMatch, setEnterMatch] = useState(false)
+    const [rank,setRank] =useState([])
     const [contest, SetContest] = useState("")
     const fetchMatchData = useCallback(async () => {
         try {
@@ -77,13 +78,11 @@ export default function LiveContest() {
     }, [match_id]);
 
     useEffect(() => {
-
         async function fetchuserRank() {
-
-
+            setLoading(true)
             try {
                 server.pathname= `/api/live/user/rank/${match_id}`
-                let ranking = fetch(server, {
+                let ranking =await fetch(server, {
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": localStorage.getItem("auth_token") || "",
@@ -93,8 +92,10 @@ export default function LiveContest() {
                 if (!ranking.ok) {
                     throw new Error(data.error);
                 }
+                setRank(data)
             }
             catch (error) {
+                setError(error.message)
                 if (error.message === "Invalid or expired token") {
                     navigate('/login')
                 }
@@ -153,10 +154,12 @@ export default function LiveContest() {
                             }>Enter Match</div>
                         </div>
                         {contest.map((contest, index) => {
+                            console.log(rank);
                             if (contest.status === "live" && !enterMatch) {
                                 setEnterMatch(true)
                             }
-                            return (<LiveContestCard key={index} contest={contest} prize_detail={contest} />)
+
+                            return (<LiveContestCard key={index} contest={contest} prize_detail={contest} rank={rank[index]||[]}/>)
                         })
                         }
                     </div>

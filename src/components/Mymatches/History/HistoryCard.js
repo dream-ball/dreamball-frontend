@@ -47,7 +47,7 @@ export default function History() {
                             {
                                 <>
                                 {console.log(history)}
-                               { history.map(match=> <MatchCard match={match} path={'/'} type={"history"} />)}
+                               { history.map(match=> <MatchCard match={match} path={''} type={"history"} />)}
                             </>
                             }
 

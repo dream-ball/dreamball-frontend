@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import './LiveContest.css'
 
 
-export default function LiveContestCard({ contest, prize_detail }) {
+export default function LiveContestCard({ contest, prize_detail, rank }) {
     let navigate = useNavigate();
     const { match_id } = useParams();
 
@@ -12,14 +12,10 @@ export default function LiveContestCard({ contest, prize_detail }) {
     return (
         <div className="cnt_card" id={`${contest.contest_id}`} >
             <div className="layer_link"></div>
-
-
             <div className="card">
                 <p>{prize_details["max_prize"] === 0 ? "Practice Contest" : "Prize Pool"}</p>
                 <div className="total_prize">
                     <div>{contest.prize_pool > 0 ? `₹${formatNumber(contest.prize_pool)}` : "Free"}</div>
-
-                    {/* Store status in a variable to avoid redundant checks */}
                     {contest.status.toLowerCase() === "live" ? (
                         <div
                             data-contest-id={contest.contest_id} // Use data attribute instead of custom ones
@@ -48,12 +44,12 @@ export default function LiveContestCard({ contest, prize_detail }) {
             <div className="contest_rank">
                 {
                     contest.status.toLowerCase() === "live" ?
-                        // <div className="contest_rank_header">
-                        //     <div className="rank">Rank <p>#1</p></div>
-                        //     <div className="points">Points <p>35</p></div>
-                        //     <div className="winings" >winnings <p>₹0.1</p></div>
-                        // </div>
-                        <></> :
+                        <>
+                            <div className="contest_rank_header">
+                                <div className="rank">Rank <p>{rank.position || 1}</p></div>
+                                <div className="points">Points <p>{rank.points || 0}</p></div>
+                                <div className="winings" >winnings <p>₹{rank.winnings || 0}</p></div>
+                            </div></> :
                         <div className="contest_rank_header"><div> Contest cancled. Money will be Refunded </div></div>
 
                 }
