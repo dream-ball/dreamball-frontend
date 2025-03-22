@@ -1,18 +1,42 @@
-import React from "react";
+import { useEffect,useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./utils/styles/Home.css";
 import logo from './white-logo.png'
 
 const LandingPage = () => {
 
+  const navigate = useNavigate();
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
 
-  const handlePlaybtn = ()=>{
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault(); 
+      setDeferredPrompt(event);
+    });
+  }, []);
 
-  }
+  const handlePlaybtn = () => {
+    navigate("/login");
+  };
 
-  const handleGetBetabtn = ()=>{
-    
-  }
+  const handleGetBetabtn = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted PWA installation");
+        } else {
+          console.log("User dismissed PWA installation");
+        }
+        setDeferredPrompt(null);
+      });
+    } else {
+      navigate("/login")
+    }
+  };
 
   return (
     <div className="landing-page">
@@ -21,7 +45,10 @@ const LandingPage = () => {
         <div className="logo">
           <img src={logo} alt="DreamBall Logo" />
         </div>
-        <ul className="nav-links">
+        <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "✖" : "☰"}
+      </button>
+        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
           <li><a href="#features">Features</a></li>
           <li><a href="#how-to-play">How to Play</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
