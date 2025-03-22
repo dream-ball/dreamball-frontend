@@ -12,10 +12,16 @@ const LandingPage = () => {
 
 
   useEffect(() => {
-    window.addEventListener("beforeinstallprompt", (event) => {
+    const handleBeforeInstallPrompt = (event) => {
       event.preventDefault(); 
       setDeferredPrompt(event);
-    });
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    };
   }, []);
 
   const handlePlaybtn = () => {
@@ -27,17 +33,16 @@ const LandingPage = () => {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
-          console.log("User accepted PWA installation");
+          console.log("✅ User accepted PWA installation");
         } else {
-          console.log("User dismissed PWA installation");
+          console.log("❌ User dismissed PWA installation");
         }
         setDeferredPrompt(null);
       });
     } else {
-      navigate("/login")
+      navigate("/register"); // Changed to /register as per your earlier request
     }
   };
-
   return (
     <div className="landing-page">
       {/* Navbar */}
