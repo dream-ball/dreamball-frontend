@@ -14,9 +14,6 @@ const LandingPage = () => {
     
   }
 
-
-
-
   return (
     <div className="landing-page">
       {/* Navbar */}
@@ -34,7 +31,7 @@ const LandingPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero">
+      <section className="home_hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1>DreamBall Cricket Fantasy</h1>

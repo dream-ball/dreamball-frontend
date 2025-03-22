@@ -65,7 +65,7 @@ body, html {
   }
   
   /* Hero Section */
-  .hero {
+  .home_hero {
     position: relative;
     height: 100vh;
     display: flex;
@@ -91,12 +91,12 @@ body, html {
     z-index: 2;
   }
   
-  .hero h1 {
+  .home_hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
   }
   
-  .hero p {
+  .home_hero p {
     background: linear-gradient(90deg, #2767C2, #7AB1FF, #CEE2FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

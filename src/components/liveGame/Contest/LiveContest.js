@@ -92,6 +92,7 @@ export default function LiveContest() {
                 if (!ranking.ok) {
                     throw new Error(data.error);
                 }
+                console.log(data);
                 setRank(data)
             }
             catch (error) {
